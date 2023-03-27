@@ -13,7 +13,7 @@ namespace DataAccess.Context
         public eWarehouseDbContext(DbContextOptions<eWarehouseDbContext> options)
             : base(options)
         {
-
+            //Database.EnsureCreated();
         }
 
         public DbSet<Product> Products { get; set; }
