@@ -53,6 +53,4 @@ namespace BLL.Managers
             await _dbContext.SaveChangesAsync();
         }
     }
-
-
 }
