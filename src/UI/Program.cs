@@ -1,3 +1,4 @@
+using BusinessLogic.BLL;
 using BusinessLogic.Interfaces;
 using DataAccess.DAO;
 using DataAccess.Interfaces;
@@ -7,6 +8,7 @@ using eWarehouse.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using DataAccess.Context;
+using UI.Forms;
 
 namespace UI
 {
@@ -37,15 +39,16 @@ namespace UI
             services.AddTransient<IProviderDAO, ProviderDAO>();
             services.AddTransient<IProductDAO, ProductDAO>();
             services.AddTransient<ICategoryDAO, CategoryDAO>();
-            //services.AddTransient<IProviderBLL, ProviderBLL>();
-            //services.AddTransient<IProductBLL, ProductBLL>();
 
-
+            services.AddTransient<IProviderBLL, ProviderBLL>();
+            services.AddTransient<IProductBLL, ProductBLL>();
             services.AddTransient<ICategoryBLL, CategoryBLL>();
 
             // Register forms
             services.AddTransient<Form1>();
             services.AddTransient<CategoryForm>();
+            services.AddTransient<ProviderForm>();
+            services.AddTransient<ProductForm>();
 
             return services.BuildServiceProvider();
         }

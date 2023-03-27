@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using UI.Forms;
 
 namespace UI
 {
@@ -12,6 +13,12 @@ namespace UI
             _serviceProvider = serviceProvider;
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
         private void btnOpenCategories_Click(object sender, EventArgs e)
         {
             using (var categoryForm = _serviceProvider.GetService<CategoryForm>())
@@ -20,9 +27,14 @@ namespace UI
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
+       
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (var providerForm = _serviceProvider.GetService<ProviderForm>())
+            {
+                providerForm.ShowDialog();
+            }
         }
     }
 }
