@@ -39,6 +39,8 @@ namespace UI
             services.AddTransient<ICategoryDAO, CategoryDAO>();
             //services.AddTransient<IProviderBLL, ProviderBLL>();
             //services.AddTransient<IProductBLL, ProductBLL>();
+
+
             services.AddTransient<ICategoryBLL, CategoryBLL>();
 
             // Register forms

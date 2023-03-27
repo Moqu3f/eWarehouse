@@ -24,6 +24,7 @@ namespace UI
             _categoryBLL = categoryBLL;
         }
 
+
         private void CategoryForm_Load(object sender, EventArgs e)
         {
             LoadCategories();
