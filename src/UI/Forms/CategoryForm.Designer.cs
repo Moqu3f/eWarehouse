@@ -35,8 +35,8 @@
             btnDelete = new Button();
             btnUpdate = new Button();
             groupBox1 = new GroupBox();
-            label1 = new Label();
             label2 = new Label();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvCategories).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -112,15 +112,7 @@
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(20, 37);
-            label1.Name = "label1";
-            label1.Size = new Size(39, 15);
-            label1.TabIndex = 3;
-            label1.Text = "Назва";
+            groupBox1.Enter += groupBox1_Enter;
             // 
             // label2
             // 
@@ -130,6 +122,15 @@
             label2.Size = new Size(36, 15);
             label2.TabIndex = 3;
             label2.Text = "Опис";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(20, 37);
+            label1.Name = "label1";
+            label1.Size = new Size(39, 15);
+            label1.TabIndex = 3;
+            label1.Text = "Назва";
             // 
             // CategoryForm
             // 

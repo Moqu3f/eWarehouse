@@ -27,13 +27,21 @@ namespace UI
             }
         }
 
-       
+
 
         private void button2_Click(object sender, EventArgs e)
         {
             using (var providerForm = _serviceProvider.GetService<ProviderForm>())
             {
                 providerForm.ShowDialog();
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            using (var productForm = _serviceProvider.GetService<ProductForm>())
+            {
+                productForm.ShowDialog();
             }
         }
     }
