@@ -19,7 +19,7 @@ namespace UI
         }
 
 
-        private void btnOpenCategories_Click_1(object sender, EventArgs e)
+        private void btnOpenCategories_Click(object sender, EventArgs e)
         {
             using (var categoryForm = _serviceProvider.GetService<CategoryForm>())
             {
@@ -27,7 +27,9 @@ namespace UI
             }
         }
 
-        private void btnOpenProviders_Click(object sender, EventArgs e)
+
+
+        private void button2_Click(object sender, EventArgs e)
         {
             using (var providerForm = _serviceProvider.GetService<ProviderForm>())
             {
@@ -35,7 +37,7 @@ namespace UI
             }
         }
 
-        private void btnOpenProducts_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
             using (var productForm = _serviceProvider.GetService<ProductForm>())
             {

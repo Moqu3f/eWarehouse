@@ -28,82 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnOpenCategories = new System.Windows.Forms.Button();
-            this.btnOpenProviders = new System.Windows.Forms.Button();
-            this.btnOpenProducts = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            SuspendLayout();
             // 
-            // btnOpenCategories
+            // button1
             // 
-            this.btnOpenCategories.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnOpenCategories.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleGreen;
-            this.btnOpenCategories.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpenCategories.Location = new System.Drawing.Point(244, 86);
-            this.btnOpenCategories.Name = "btnOpenCategories";
-            this.btnOpenCategories.Size = new System.Drawing.Size(321, 48);
-            this.btnOpenCategories.TabIndex = 0;
-            this.btnOpenCategories.Text = "Категорії";
-            this.btnOpenCategories.UseVisualStyleBackColor = true;
-            this.btnOpenCategories.Click += new System.EventHandler(this.btnOpenCategories_Click_1);
+            button1.Location = new Point(12, 273);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 0;
+            button1.Text = "Category";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += btnOpenCategories_Click;
             // 
-            // btnOpenProviders
+            // button2
             // 
-            this.btnOpenProviders.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnOpenProviders.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleGreen;
-            this.btnOpenProviders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpenProviders.Location = new System.Drawing.Point(244, 157);
-            this.btnOpenProviders.Name = "btnOpenProviders";
-            this.btnOpenProviders.Size = new System.Drawing.Size(321, 55);
-            this.btnOpenProviders.TabIndex = 1;
-            this.btnOpenProviders.Text = "Постачальники";
-            this.btnOpenProviders.UseVisualStyleBackColor = true;
-            this.btnOpenProviders.Click += new System.EventHandler(this.btnOpenProviders_Click);
+            button2.Location = new Point(12, 313);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 1;
+            button2.Text = "Provider";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
-            // btnOpenProducts
+            // button3
             // 
-            this.btnOpenProducts.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnOpenProducts.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleGreen;
-            this.btnOpenProducts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpenProducts.Location = new System.Drawing.Point(244, 231);
-            this.btnOpenProducts.Name = "btnOpenProducts";
-            this.btnOpenProducts.Size = new System.Drawing.Size(321, 51);
-            this.btnOpenProducts.TabIndex = 2;
-            this.btnOpenProducts.Text = "Товари";
-            this.btnOpenProducts.UseVisualStyleBackColor = true;
-            this.btnOpenProducts.Click += new System.EventHandler(this.btnOpenProducts_Click);
-            // 
-            // label1
-            // 
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(788, 63);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Склад: електронний облік товарів";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            button3.Location = new Point(10, 353);
+            button3.Name = "button3";
+            button3.Size = new Size(75, 23);
+            button3.TabIndex = 2;
+            button3.Text = "Product";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 387);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnOpenProducts);
-            this.Controls.Add(this.btnOpenProviders);
-            this.Controls.Add(this.btnOpenCategories);
-            this.Name = "Form1";
-            this.Text = "Головне вікно";
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(button3);
+            Controls.Add(button2);
+            Controls.Add(button1);
+            Name = "Form1";
+            Text = "Form1";
+            Load += Form1_Load;
+            ResumeLayout(false);
         }
 
         #endregion
 
-        private Button btnOpenCategories;
-        private Button btnOpenProviders;
-        private Button btnOpenProducts;
-        private Label label1;
+        private Button button1;
+        private Button button2;
+        private Button button3;
     }
 }

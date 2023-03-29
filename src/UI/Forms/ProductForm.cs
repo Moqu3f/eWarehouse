@@ -92,10 +92,5 @@ namespace UI.Forms
         {
             
         }
-
-        private void btnCreate_Click_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }

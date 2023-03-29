@@ -28,118 +28,113 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvProviders = new System.Windows.Forms.DataGridView();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.txtAddress = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtPhone = new System.Windows.Forms.TextBox();
-            this.txt_Description = new System.Windows.Forms.TextBox();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnCreate = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProviders)).BeginInit();
-            this.SuspendLayout();
+            dgvProviders = new DataGridView();
+            txtName = new TextBox();
+            txtAddress = new TextBox();
+            txtEmail = new TextBox();
+            txtPhone = new TextBox();
+            txt_Description = new TextBox();
+            btnUpdate = new Button();
+            btnDelete = new Button();
+            btnCreate = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvProviders).BeginInit();
+            SuspendLayout();
             // 
             // dgvProviders
             // 
-            this.dgvProviders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProviders.Location = new System.Drawing.Point(12, 12);
-            this.dgvProviders.Name = "dgvProviders";
-            this.dgvProviders.RowTemplate.Height = 25;
-            this.dgvProviders.Size = new System.Drawing.Size(703, 233);
-            this.dgvProviders.TabIndex = 0;
+            dgvProviders.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProviders.Location = new Point(12, 12);
+            dgvProviders.Name = "dgvProviders";
+            dgvProviders.RowTemplate.Height = 25;
+            dgvProviders.Size = new Size(703, 233);
+            dgvProviders.TabIndex = 0;
+            dgvProviders.CellContentClick += dgvProviders_CellContentClick;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(12, 259);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(290, 23);
-            this.txtName.TabIndex = 1;
+            txtName.Location = new Point(12, 259);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(290, 23);
+            txtName.TabIndex = 1;
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(12, 288);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(290, 23);
-            this.txtAddress.TabIndex = 1;
+            txtAddress.Location = new Point(12, 288);
+            txtAddress.Name = "txtAddress";
+            txtAddress.Size = new Size(290, 23);
+            txtAddress.TabIndex = 1;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(12, 317);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(290, 23);
-            this.txtEmail.TabIndex = 1;
+            txtEmail.Location = new Point(12, 317);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(290, 23);
+            txtEmail.TabIndex = 1;
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(12, 346);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(290, 23);
-            this.txtPhone.TabIndex = 1;
+            txtPhone.Location = new Point(12, 346);
+            txtPhone.Name = "txtPhone";
+            txtPhone.Size = new Size(290, 23);
+            txtPhone.TabIndex = 1;
             // 
             // txt_Description
             // 
-            this.txt_Description.Location = new System.Drawing.Point(12, 375);
-            this.txt_Description.Name = "txt_Description";
-            this.txt_Description.Size = new System.Drawing.Size(290, 23);
-            this.txt_Description.TabIndex = 1;
+            txt_Description.Location = new Point(12, 375);
+            txt_Description.Name = "txt_Description";
+            txt_Description.Size = new Size(290, 23);
+            txt_Description.TabIndex = 1;
             // 
             // btnUpdate
             // 
-            this.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleGreen;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Location = new System.Drawing.Point(598, 335);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(107, 28);
-            this.btnUpdate.TabIndex = 3;
-            this.btnUpdate.Text = "Оновити";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Location = new Point(389, 287);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(75, 23);
+            btnUpdate.TabIndex = 3;
+            btnUpdate.Text = "btnUpdate";
+            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnDelete
             // 
-            this.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleGreen;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Location = new System.Drawing.Point(598, 404);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(107, 34);
-            this.btnDelete.TabIndex = 4;
-            this.btnDelete.Text = "Видалити";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Location = new Point(389, 345);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(75, 23);
+            btnDelete.TabIndex = 4;
+            btnDelete.Text = "btnDelete";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnCreate
             // 
-            this.btnCreate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnCreate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleGreen;
-            this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreate.Location = new System.Drawing.Point(598, 369);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(107, 29);
-            this.btnCreate.TabIndex = 5;
-            this.btnCreate.Text = "Створити";
-            this.btnCreate.UseVisualStyleBackColor = true;
+            btnCreate.Location = new Point(389, 316);
+            btnCreate.Name = "btnCreate";
+            btnCreate.Size = new Size(75, 23);
+            btnCreate.TabIndex = 5;
+            btnCreate.Text = "btnCreate";
+            btnCreate.UseVisualStyleBackColor = true;
+            btnCreate.Click += btnCreate_Click;
             // 
             // ProviderForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(717, 450);
-            this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnCreate);
-            this.Controls.Add(this.txt_Description);
-            this.Controls.Add(this.txtPhone);
-            this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.txtAddress);
-            this.Controls.Add(this.txtName);
-            this.Controls.Add(this.dgvProviders);
-            this.Name = "ProviderForm";
-            this.Text = "Постачальники товарів";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProviders)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(btnUpdate);
+            Controls.Add(btnDelete);
+            Controls.Add(btnCreate);
+            Controls.Add(txt_Description);
+            Controls.Add(txtPhone);
+            Controls.Add(txtEmail);
+            Controls.Add(txtAddress);
+            Controls.Add(txtName);
+            Controls.Add(dgvProviders);
+            Name = "ProviderForm";
+            Text = "ProviderForm";
+            Load += ProviderForm_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvProviders).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
