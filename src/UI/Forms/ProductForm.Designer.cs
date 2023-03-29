@@ -28,173 +28,180 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            cmbCategory = new ComboBox();
-            cmbProvider = new ComboBox();
-            btnUpdate = new Button();
-            btnDelete = new Button();
-            btnCreate = new Button();
-            txtName = new TextBox();
-            txtDescriprtion = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            checkBox1 = new CheckBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            SuspendLayout();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cmbCategory = new System.Windows.Forms.ComboBox();
+            this.cmbProvider = new System.Windows.Forms.ComboBox();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtDescriprtion = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.SuspendLayout();
             // 
             // dataGridView1
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(13, 12);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(776, 260);
-            dataGridView1.TabIndex = 0;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(13, 12);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(776, 260);
+            this.dataGridView1.TabIndex = 0;
             // 
             // cmbCategory
             // 
-            cmbCategory.FormattingEnabled = true;
-            cmbCategory.Location = new Point(613, 281);
-            cmbCategory.Name = "cmbCategory";
-            cmbCategory.Size = new Size(175, 23);
-            cmbCategory.TabIndex = 1;
-            cmbCategory.SelectedIndexChanged += cmbCategory_SelectedIndexChanged;
+            this.cmbCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbCategory.FormattingEnabled = true;
+            this.cmbCategory.Location = new System.Drawing.Point(614, 286);
+            this.cmbCategory.Name = "cmbCategory";
+            this.cmbCategory.Size = new System.Drawing.Size(175, 23);
+            this.cmbCategory.TabIndex = 1;
             // 
             // cmbProvider
             // 
-            cmbProvider.FormattingEnabled = true;
-            cmbProvider.Location = new Point(613, 310);
-            cmbProvider.Name = "cmbProvider";
-            cmbProvider.Size = new Size(175, 23);
-            cmbProvider.TabIndex = 1;
-            cmbProvider.SelectedIndexChanged += cmbProvider_SelectedIndexChanged;
+            this.cmbProvider.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbProvider.FormattingEnabled = true;
+            this.cmbProvider.Location = new System.Drawing.Point(614, 331);
+            this.cmbProvider.Name = "cmbProvider";
+            this.cmbProvider.Size = new System.Drawing.Size(175, 23);
+            this.cmbProvider.TabIndex = 1;
             // 
             // btnUpdate
             // 
-            btnUpdate.Location = new Point(700, 347);
-            btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(75, 23);
-            btnUpdate.TabIndex = 3;
-            btnUpdate.Text = "btnUpdate";
-            btnUpdate.UseVisualStyleBackColor = true;
-            btnUpdate.Click += btnUpdate_Click;
+            this.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleGreen;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Location = new System.Drawing.Point(663, 387);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(125, 31);
+            this.btnUpdate.TabIndex = 3;
+            this.btnUpdate.Text = "Оновити";
+            this.btnUpdate.UseVisualStyleBackColor = true;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(700, 405);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(75, 23);
-            btnDelete.TabIndex = 4;
-            btnDelete.Text = "btnDelete";
-            btnDelete.UseVisualStyleBackColor = true;
-            btnDelete.Click += btnDelete_Click;
+            this.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleGreen;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Location = new System.Drawing.Point(663, 461);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(125, 34);
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.Text = "Видалити";
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // btnCreate
             // 
-            btnCreate.Location = new Point(700, 376);
-            btnCreate.Name = "btnCreate";
-            btnCreate.Size = new Size(75, 23);
-            btnCreate.TabIndex = 5;
-            btnCreate.Text = "btnCreate";
-            btnCreate.UseVisualStyleBackColor = true;
-            btnCreate.Click += btnCreate_Click;
+            this.btnCreate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnCreate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleGreen;
+            this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreate.Location = new System.Drawing.Point(663, 424);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(125, 31);
+            this.btnCreate.TabIndex = 5;
+            this.btnCreate.Text = "Створити";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click_1);
             // 
             // txtName
             // 
-            txtName.Location = new Point(57, 281);
-            txtName.Name = "txtName";
-            txtName.Size = new Size(231, 23);
-            txtName.TabIndex = 6;
+            this.txtName.Location = new System.Drawing.Point(57, 286);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(231, 23);
+            this.txtName.TabIndex = 6;
             // 
             // txtDescriprtion
             // 
-            txtDescriprtion.Location = new Point(57, 310);
-            txtDescriprtion.Name = "txtDescriprtion";
-            txtDescriprtion.Size = new Size(231, 23);
-            txtDescriprtion.TabIndex = 6;
+            this.txtDescriprtion.Location = new System.Drawing.Point(57, 321);
+            this.txtDescriprtion.Name = "txtDescriprtion";
+            this.txtDescriprtion.Size = new System.Drawing.Size(231, 23);
+            this.txtDescriprtion.TabIndex = 6;
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 284);
-            label1.Name = "label1";
-            label1.Size = new Size(39, 15);
-            label1.TabIndex = 7;
-            label1.Text = "Назва";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 294);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 15);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Назва";
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(13, 310);
-            label2.Name = "label2";
-            label2.Size = new Size(36, 15);
-            label2.TabIndex = 7;
-            label2.Text = "Опис";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 324);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 15);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Опис";
             // 
             // label3
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(13, 339);
-            label3.Name = "label3";
-            label3.Size = new Size(0, 15);
-            label3.TabIndex = 7;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 339);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 15);
+            this.label3.TabIndex = 7;
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(548, 284);
-            label4.Name = "label4";
-            label4.Size = new Size(59, 15);
-            label4.TabIndex = 7;
-            label4.Text = "Категорія";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(548, 289);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 15);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Категорія";
             // 
             // label5
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(541, 313);
-            label5.Name = "label5";
-            label5.Size = new Size(66, 15);
-            label5.TabIndex = 7;
-            label5.Text = "Поставник";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(541, 334);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(66, 15);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Поставник";
             // 
             // checkBox1
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(57, 339);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(92, 19);
-            checkBox1.TabIndex = 8;
-            checkBox1.Text = "Доступність";
-            checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(57, 359);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(92, 19);
+            this.checkBox1.TabIndex = 8;
+            this.checkBox1.Text = "Доступність";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // ProductForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(checkBox1);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(txtDescriprtion);
-            Controls.Add(txtName);
-            Controls.Add(btnUpdate);
-            Controls.Add(btnDelete);
-            Controls.Add(btnCreate);
-            Controls.Add(cmbProvider);
-            Controls.Add(cmbCategory);
-            Controls.Add(dataGridView1);
-            Name = "ProductForm";
-            Text = "ProductForm";
-            Load += ProductForm_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 507);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtDescriprtion);
+            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnCreate);
+            this.Controls.Add(this.cmbProvider);
+            this.Controls.Add(this.cmbCategory);
+            this.Controls.Add(this.dataGridView1);
+            this.Name = "ProductForm";
+            this.Text = "Товари на складі";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
