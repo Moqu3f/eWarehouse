@@ -28,12 +28,18 @@ namespace UI
         private void CategoryForm_Load(object sender, EventArgs e)
         {
             LoadCategories();
+
+            dgvCategories.Columns[0].HeaderText = "Id";
+            dgvCategories.Columns[1].HeaderText = "Назва";
+            dgvCategories.Columns[2].HeaderText = "Опис";
+            dgvCategories.Columns[3].Visible = false;
+
+
         }
 
-        private void LoadCategories()
-        {
-            dgvCategories.DataSource = _categoryBLL.GetAllCategories();
-        }
+
+        private void LoadCategories() => dgvCategories.DataSource = _categoryBLL.GetAllCategories();
+
 
         private void dgvCategories_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -45,6 +51,7 @@ namespace UI
             }
         }
 
+
         private void UpdateCategoryFields()
         {
             if (_selectedCategory != null)
@@ -54,8 +61,15 @@ namespace UI
             }
         }
 
+
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(txtDescription.Text))
+            {
+                MessageBox.Show("Будь ласка, заповніть поля назви та опису категорії.", "Помилка валідації", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             Category category = new Category
             {
                 Name = txtName.Text,
@@ -68,36 +82,44 @@ namespace UI
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (_selectedCategory != null)
+            if (_selectedCategory == null)
             {
-                _selectedCategory.Name = txtName.Text;
-                _selectedCategory.Description = txtDescription.Text;
-
-                _categoryBLL.UpdateCategory(_selectedCategory);
-                LoadCategories();
+                MessageBox.Show("Будь ласка, оберіть категорію для оновлення.", "Помилка валідації", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            if (string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(txtDescription.Text))
+            {
+                MessageBox.Show("Будь ласка, заповніть поля назви та опису категорії.", "Помилка валідації", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            _selectedCategory.Name = txtName.Text;
+            _selectedCategory.Description = txtDescription.Text;
+
+            _categoryBLL.UpdateCategory(_selectedCategory);
+            LoadCategories();
         }
+
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (_selectedCategory != null)
+            if (_selectedCategory == null)
             {
-                _categoryBLL.DeleteCategory(_selectedCategory.Id);
-                _selectedCategory = null;
-                ClearCategoryFields();
-                LoadCategories();
+                MessageBox.Show("Будь ласка, оберіть категорію для видалення.", "Помилка валідації", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            _categoryBLL.DeleteCategory(_selectedCategory.Id);
+            _selectedCategory = null;
+            ClearCategoryFields();
+            LoadCategories();
         }
 
         private void ClearCategoryFields()
         {
             txtName.Text = "";
             txtDescription.Text = "";
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }

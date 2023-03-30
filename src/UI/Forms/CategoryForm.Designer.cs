@@ -43,8 +43,10 @@
             // 
             // dgvCategories
             // 
+            dgvCategories.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvCategories.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvCategories.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvCategories.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCategories.Dock = DockStyle.Top;
             dgvCategories.Location = new Point(0, 0);
             dgvCategories.Name = "dgvCategories";
             dgvCategories.RowTemplate.Height = 25;
@@ -54,45 +56,50 @@
             // 
             // txtName
             // 
-            txtName.Location = new Point(64, 34);
+            txtName.BorderStyle = BorderStyle.None;
+            txtName.Location = new Point(65, 38);
             txtName.Name = "txtName";
-            txtName.Size = new Size(217, 23);
+            txtName.Size = new Size(217, 16);
             txtName.TabIndex = 1;
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(64, 74);
+            txtDescription.BorderStyle = BorderStyle.None;
+            txtDescription.Location = new Point(62, 78);
             txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(217, 23);
+            txtDescription.Size = new Size(217, 16);
             txtDescription.TabIndex = 1;
             // 
             // btnCreate
             // 
+            btnCreate.FlatStyle = FlatStyle.Flat;
             btnCreate.Location = new Point(326, 63);
             btnCreate.Name = "btnCreate";
             btnCreate.Size = new Size(75, 23);
             btnCreate.TabIndex = 2;
-            btnCreate.Text = "btnCreate";
+            btnCreate.Text = "Створити";
             btnCreate.UseVisualStyleBackColor = true;
             btnCreate.Click += btnCreate_Click;
             // 
             // btnDelete
             // 
+            btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.Location = new Point(326, 92);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(75, 23);
             btnDelete.TabIndex = 2;
-            btnDelete.Text = "btnDelete";
+            btnDelete.Text = "Видалити";
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
             // 
             // btnUpdate
             // 
+            btnUpdate.FlatStyle = FlatStyle.Flat;
             btnUpdate.Location = new Point(326, 34);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(75, 23);
             btnUpdate.TabIndex = 2;
-            btnUpdate.Text = "btnUpdate";
+            btnUpdate.Text = "Оновити";
             btnUpdate.UseVisualStyleBackColor = true;
             btnUpdate.Click += btnUpdate_Click;
             // 
@@ -111,8 +118,6 @@
             groupBox1.Size = new Size(427, 150);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
-            groupBox1.Enter += groupBox1_Enter;
             // 
             // label2
             // 
@@ -140,7 +145,7 @@
             Controls.Add(groupBox1);
             Controls.Add(dgvCategories);
             Name = "CategoryForm";
-            Text = "CategoryForm";
+            Text = "Категорії";
             Load += CategoryForm_Load;
             ((System.ComponentModel.ISupportInitialize)dgvCategories).EndInit();
             groupBox1.ResumeLayout(false);

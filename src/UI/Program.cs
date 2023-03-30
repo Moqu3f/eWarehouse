@@ -8,7 +8,12 @@ using eWarehouse.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using DataAccess.Context;
+using Microsoft.Extensions.Caching.Memory;
 using UI.Forms;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 
 namespace UI
 {
@@ -26,14 +31,15 @@ namespace UI
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(serviceProvider.GetService<Form1>());
         }
-
+        
         static IServiceProvider ConfigureServices()
         {
             var services = new ServiceCollection();
 
             // Add DbContext and connection string
-            var connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+            var connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=eWarehouse;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
             services.AddDbContext<eWarehouseDbContext>(options => options.UseSqlServer(connectionString));
+
 
             // Register DAOs and BLLs
             services.AddTransient<IProviderDAO, ProviderDAO>();

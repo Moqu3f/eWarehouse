@@ -1,3 +1,4 @@
+using BusinessLogic.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using UI.Forms;
 
@@ -6,11 +7,13 @@ namespace UI
     public partial class Form1 : Form
     {
         private readonly IServiceProvider _serviceProvider;
+        private readonly ICategoryBLL _categoryBLL;
 
-        public Form1(IServiceProvider serviceProvider)
+        public Form1(IServiceProvider serviceProvider, ICategoryBLL category)
         {
             InitializeComponent();
             _serviceProvider = serviceProvider;
+            _categoryBLL = category;
         }
 
         private void Form1_Load(object sender, EventArgs e)

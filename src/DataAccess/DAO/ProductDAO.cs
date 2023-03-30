@@ -29,7 +29,10 @@ namespace eWarehouse.DataAccess
 
         public List<Product> GetAll()
         {
-            return _context.Products.ToList();
+            return _context.Products
+                .Include(p => p.Provider)
+                .Include(p => p.Category)
+                .ToList();
         }
 
         public void Update(Product product)
