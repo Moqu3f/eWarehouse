@@ -77,5 +77,8 @@ namespace BusinessLogic.BLL
                 throw new Exception("Error deleting product", ex);
             }
         }
+
+
+
     }
 }

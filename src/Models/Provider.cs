@@ -8,6 +8,7 @@ namespace Models
 {
     public class Provider
     {
+        //TODO: ADD NAME,SURNAME
         public long Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }

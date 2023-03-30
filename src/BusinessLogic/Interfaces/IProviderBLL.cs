@@ -9,6 +9,12 @@ namespace BusinessLogic.Interfaces
 {
     public interface IProviderBLL
     {
+        //TODO: FIND KEYWORD PRODUCT
+
+        //TODO: CLASS CUSTOMER /BLL DAO LAYER
+        //TODO: CUSTOMER FIND KEYWORD
+
+        //TODO: PROJECT NUNIT TEST
         void CreateProvider(Provider provider);
         Provider GetProviderById(long id);
         List<Provider> GetAllProviders();

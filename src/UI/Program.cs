@@ -37,8 +37,9 @@ namespace UI
             var services = new ServiceCollection();
 
             // Add DbContext and connection string
-            var connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=eWarehouse;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
-            services.AddDbContext<eWarehouseDbContext>(options => options.UseSqlServer(connectionString));
+            //var connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=eWarehouse;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+            //services.AddDbContext<eWarehouseDbContext>(options => options.UseSqlServer(connectionString));
+            services.AddDbContext<eWarehouseDbContext>(options => options.UseInMemoryDatabase(databaseName: "eWarehouseDB"));
 
 
             // Register DAOs and BLLs

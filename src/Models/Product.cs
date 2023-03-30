@@ -8,6 +8,7 @@ namespace Models
 {
     public class Product
     {
+        //TODO: ADD BRAND,PRICE
         public long Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }

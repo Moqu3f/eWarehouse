@@ -9,6 +9,9 @@ namespace BusinessLogic.Interfaces
 {
     public interface ICategoryBLL
     {
+
+
+
         void CreateCategory(Category category);
         Category GetCategoryById(long id);
         List<Category> GetAllCategories();
