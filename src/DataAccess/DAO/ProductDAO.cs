@@ -7,6 +7,9 @@ using Models;
 
 namespace eWarehouse.DataAccess
 {
+
+    //TODO: Implement exception checking in the business logic and data access layer; including when working with data
+    //TODO: use public fields in classes. If you need to access them, use properties, indexers, or separate accessor methods
     public class ProductDAO : IProductDAO
     {
         private readonly eWarehouseDbContext _context;
