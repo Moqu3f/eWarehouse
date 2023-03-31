@@ -14,7 +14,5 @@ namespace DataAccess.Interfaces
         List<Product> GetAll();
         void Update(Product product);
         void Delete(long id);
-        List<Product> GetProductsByCategory(long categoryId);
-        List<Product> GetProductsByProvider(long providerId);
     }
 }

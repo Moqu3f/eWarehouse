@@ -52,15 +52,5 @@ namespace eWarehouse.DataAccess
                 _context.SaveChanges();
             }
         }
-
-        public List<Product> GetProductsByCategory(long categoryId)
-        {
-            return _context.Products.Where(p => p.CategoryId == categoryId).ToList();
-        }
-
-        public List<Product> GetProductsByProvider(long providerId)
-        {
-            return _context.Products.Where(p => p.ProviderId == providerId).ToList();
-        }
     }
 }
