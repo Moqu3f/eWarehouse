@@ -128,20 +128,26 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int currentRowIndex = dgvCategories.CurrentCell.RowIndex;
-            if (currentRowIndex < dgvCategories.Rows.Count - 1)
+            if (dgvCategories != null)
             {
-                dgvCategories.CurrentCell = dgvCategories.Rows[currentRowIndex + 1].Cells[0];
+                int currentRowIndex = dgvCategories.CurrentCell?.RowIndex ?? -1;
+                if (currentRowIndex > 0)
+                {
+                    dgvCategories.CurrentCell = dgvCategories.Rows[currentRowIndex - 1].Cells[0];
+                }
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
 
-            int currentRowIndex = dgvCategories.CurrentCell.RowIndex;
-            if (currentRowIndex > 0)
+            if (dgvCategories != null)
             {
-                dgvCategories.CurrentCell = dgvCategories.Rows[currentRowIndex - 1].Cells[0];
+                int currentRowIndex = dgvCategories.CurrentCell?.RowIndex ?? -1;
+                if (currentRowIndex < dgvCategories.Rows.Count - 1)
+                {
+                    dgvCategories.CurrentCell = dgvCategories.Rows[currentRowIndex + 1].Cells[0];
+                }   
             }
         }
 

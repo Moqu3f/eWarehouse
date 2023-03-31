@@ -35,31 +35,37 @@
             // 
             // button1
             // 
-            button1.Location = new Point(12, 273);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Location = new Point(26, 12);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(389, 119);
             button1.TabIndex = 0;
-            button1.Text = "Category";
+            button1.Text = "Категорії";
             button1.UseVisualStyleBackColor = true;
             button1.Click += btnOpenCategories_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(12, 313);
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.Location = new Point(26, 137);
             button2.Name = "button2";
-            button2.Size = new Size(75, 23);
+            button2.Size = new Size(389, 119);
             button2.TabIndex = 1;
-            button2.Text = "Provider";
+            button2.Text = "Постачальники";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
             // button3
             // 
-            button3.Location = new Point(10, 353);
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            button3.Location = new Point(26, 262);
             button3.Name = "button3";
-            button3.Size = new Size(75, 23);
+            button3.Size = new Size(389, 119);
             button3.TabIndex = 2;
-            button3.Text = "Product";
+            button3.Text = "Товари";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
@@ -67,12 +73,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(455, 401);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Головна форма";
             Load += Form1_Load;
             ResumeLayout(false);
         }

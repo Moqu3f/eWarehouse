@@ -38,6 +38,7 @@ namespace UI.Forms
             InitializeComponent();
         }
 
+
         private void LoadProduct()
         {
             dataGridView1.DataSource = _productBLL.GetAllProducts();
@@ -109,6 +110,8 @@ namespace UI.Forms
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             UpdateProduct();
+            dataGridView1.DataSource = _productBLL.GetAllProducts();
+
         }
 
         private void UpdateProduct()
@@ -147,6 +150,8 @@ namespace UI.Forms
             _selectedProduct.Name = name;
             _selectedProduct.Description = description;
             _selectedProduct.Customer = customer;
+            _selectedProduct.Brand = brand;
+            _selectedProduct.Price = decimal.TryParse(price, out decimal value) ? value : 0;
             _selectedProduct.Availability = availability;
             _selectedProduct.Provider = _selectedProvider;
             _selectedProduct.Category = _selectedCategory;
@@ -281,19 +286,25 @@ namespace UI.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int currentRowIndex = dataGridView1.CurrentCell.RowIndex;
-            if (currentRowIndex < dataGridView1.Rows.Count - 1)
+            if (dataGridView1 != null)
             {
-                dataGridView1.CurrentCell = dataGridView1.Rows[currentRowIndex + 1].Cells[0];
+                int currentRowIndex = dataGridView1.CurrentCell?.RowIndex ?? -1;
+                if (currentRowIndex < dataGridView1.Rows.Count - 1)
+                {
+                    dataGridView1.CurrentCell = dataGridView1.Rows[currentRowIndex + 1].Cells[0];
+                }
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int currentRowIndex = dataGridView1.CurrentCell.RowIndex;
-            if (currentRowIndex > 0)
+            if (dataGridView1 != null)
             {
-                dataGridView1.CurrentCell = dataGridView1.Rows[currentRowIndex - 1].Cells[0];
+                int currentRowIndex = dataGridView1.CurrentCell?.RowIndex ?? -1;
+                if (currentRowIndex > 0)
+                {
+                    dataGridView1.CurrentCell = dataGridView1.Rows[currentRowIndex - 1].Cells[0];
+                }
             }
         }
 

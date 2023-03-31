@@ -50,6 +50,7 @@
             button1 = new Button();
             txtSurname = new TextBox();
             label2 = new Label();
+            button5 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvProviders).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -184,6 +185,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(button5);
             groupBox1.Controls.Add(groupBox2);
             groupBox1.Controls.Add(button2);
             groupBox1.Controls.Add(button1);
@@ -236,7 +238,7 @@
             button4.Name = "button4";
             button4.Size = new Size(91, 23);
             button4.TabIndex = 15;
-            button4.Text = "По призвіщу";
+            button4.Text = "По прізвищу";
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
@@ -277,6 +279,16 @@
             label2.Size = new Size(61, 15);
             label2.TabIndex = 6;
             label2.Text = "Призвіще";
+            // 
+            // button5
+            // 
+            button5.Location = new Point(451, 169);
+            button5.Name = "button5";
+            button5.Size = new Size(75, 23);
+            button5.TabIndex = 17;
+            button5.Text = "Очистити";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // ProviderForm
             // 
@@ -319,5 +331,6 @@
         private GroupBox groupBox2;
         private Button button3;
         private Button button4;
+        private Button button5;
     }
 }

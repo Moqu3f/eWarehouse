@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -77,16 +78,21 @@ namespace UI.Forms
         {
             if (_selectedProvider != null)
             {
-                _providerBLL.DeleteProvider(_selectedProvider.Id);
-                _selectedProvider = null;
-                ClearCategoryFields();
-                LoadCategories();
+                DialogResult result = MessageBox.Show("Ви впевнені, що бажаєте видалити постачальника?", "Підтвердження видалення", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    _providerBLL.DeleteProvider(_selectedProvider.Id);
+                    _selectedProvider = null;
+                    ClearProviderFields();
+                    LoadCategories();
+                }
             }
             else
             {
                 MessageBox.Show("Постачальника не обрано.");
             }
         }
+
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -129,6 +135,17 @@ namespace UI.Forms
                 return;
             }
 
+            if (!IsValidEmail(txtEmail.Text))
+            {
+                MessageBox.Show("Будь ласка, введіть коректну електронну адресу.");
+                return;
+            }
+
+            if (!IsValidPhoneNumber(txtPhone.Text))
+            {
+                MessageBox.Show("Будь ласка, введіть коректний номер телефону.");
+                return;
+            }
 
             var provider = new Provider
             {
@@ -144,7 +161,24 @@ namespace UI.Forms
             LoadCategories();
         }
 
-        private void ClearCategoryFields()
+        private bool IsValidEmail(string email)
+        {
+            // This is a simple regular expression that checks if the email address
+            // contains an "@" symbol and a valid domain name.
+            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(email, pattern);
+        }
+
+        private bool IsValidPhoneNumber(string phoneNumber)
+        {
+            // This regular expression checks if the phone number contains only digits
+            // and is exactly 10 characters long.
+            string pattern = @"^\+380\d{9}$";
+            return Regex.IsMatch(phoneNumber, pattern);
+        }
+
+
+        private void ClearProviderFields()
         {
             txtName.Text = "";
             txtAddress.Text = "";
@@ -156,22 +190,28 @@ namespace UI.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int currentRowIndex = dgvProviders.CurrentCell.RowIndex;
-            if (currentRowIndex < dgvProviders.Rows.Count - 1)
+
+            if (dgvProviders != null)
             {
-                dgvProviders.CurrentCell = dgvProviders.Rows[currentRowIndex + 1].Cells[0];
+                int currentRowIndex = dgvProviders.CurrentCell?.RowIndex ?? -1;
+                if (currentRowIndex < dgvProviders.Rows.Count - 1)
+                {
+                    dgvProviders.CurrentCell = dgvProviders.Rows[currentRowIndex + 1].Cells[0];
+                }
             }
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int currentRowIndex = dgvProviders.CurrentCell.RowIndex;
-            if (currentRowIndex > 0)
+            if (dgvProviders != null)
             {
-                dgvProviders.CurrentCell = dgvProviders.Rows[currentRowIndex - 1].Cells[0];
+                int currentRowIndex = dgvProviders.CurrentCell?.RowIndex ?? -1;
+                if (currentRowIndex > 0)
+                {
+                    dgvProviders.CurrentCell = dgvProviders.Rows[currentRowIndex - 1].Cells[0];
+                }
             }
-
         }
 
         private void dgvProviders_SelectionChanged(object sender, EventArgs e)
@@ -194,6 +234,11 @@ namespace UI.Forms
         private void button4_Click(object sender, EventArgs e)
         {
             dgvProviders.DataSource = _providerBLL.GetProvidersSortedBySurname();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ClearProviderFields();
         }
     }
 }
