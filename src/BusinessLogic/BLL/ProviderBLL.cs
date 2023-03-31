@@ -28,7 +28,6 @@ namespace BusinessLogic.BLL
             }
             catch (Exception ex)
             {
-                // Log or handle the exception
                 throw ex;
             }
         }
@@ -41,7 +40,6 @@ namespace BusinessLogic.BLL
             }
             catch (Exception ex)
             {
-                // Log or handle the exception
                 throw ex;
             }
         }
@@ -54,7 +52,6 @@ namespace BusinessLogic.BLL
             }
             catch (Exception ex)
             {
-                // Log or handle the exception
                 throw ex;
             }
         }
@@ -67,7 +64,6 @@ namespace BusinessLogic.BLL
             }
             catch (Exception ex)
             {
-                // Log or handle the exception
                 throw ex;
             }
         }
@@ -80,7 +76,30 @@ namespace BusinessLogic.BLL
             }
             catch (Exception ex)
             {
-                // Log or handle the exception
+                throw ex;
+            }
+        }
+
+        public List<Provider> GetProvidersSortedByName()
+        {
+            try
+            {
+                return _providerDAO.GetAll().OrderBy(q => q.Name).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<Provider> GetProvidersSortedBySurname()
+        {
+            try
+            {
+                return _providerDAO.GetAll().OrderBy(q => q.Surname).ToList();
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }

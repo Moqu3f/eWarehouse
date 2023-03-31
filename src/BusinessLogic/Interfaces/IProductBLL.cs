@@ -9,17 +9,18 @@ namespace BusinessLogic.Interfaces
 {
     public interface IProductBLL
     {
-
-        //TODO: ADD SORT NAME
-        //TODO: ADD SORT BRAND
-        //TODO: ADD SORT PRICE
-
-        //TODO: FIND KEYWORD PRODUCT
+        
         void CreateProduct(Product product);
         Product GetProductById(long id);
         List<Product> GetAllProducts();
         void UpdateProduct(Product product);
         void DeleteProduct(long id);
-        
+
+
+        List<Product> GetProductsSortedByName();
+        List<Product> GetProductsSortedByBrand();
+        List<Product> GetProductsSortedByPrice();
+        List<Product> SearchProductsByKeyword(string keyword);
+        List<Product> searchCustomerByProducts(string customer);
     }
 }

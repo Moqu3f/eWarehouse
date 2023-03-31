@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using BusinessLogic.BLL;
 using BusinessLogic.Interfaces;
 using Models;
 
@@ -34,6 +35,9 @@ namespace UI
             dgvCategories.Columns["Description"].HeaderText = "Опис";
             dgvCategories.Columns[3].Visible = false;
 
+            dgvCategories.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvCategories.DefaultCellStyle.SelectionBackColor = Color.Yellow;
+            dgvCategories.DefaultCellStyle.SelectionForeColor = Color.Blue;
 
         }
 
@@ -120,6 +124,36 @@ namespace UI
         {
             txtName.Text = "";
             txtDescription.Text = "";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int currentRowIndex = dgvCategories.CurrentCell.RowIndex;
+            if (currentRowIndex < dgvCategories.Rows.Count - 1)
+            {
+                dgvCategories.CurrentCell = dgvCategories.Rows[currentRowIndex + 1].Cells[0];
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            int currentRowIndex = dgvCategories.CurrentCell.RowIndex;
+            if (currentRowIndex > 0)
+            {
+                dgvCategories.CurrentCell = dgvCategories.Rows[currentRowIndex - 1].Cells[0];
+            }
+        }
+
+        private void dgvCategories_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvCategories.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dgvCategories.SelectedRows[0];
+                long id = (long)selectedRow.Cells["Id"].Value;
+                _selectedCategory = _categoryBLL.GetCategoryById(id);
+                UpdateCategoryFields();
+            }
         }
     }
 }

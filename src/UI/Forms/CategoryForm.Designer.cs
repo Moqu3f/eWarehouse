@@ -35,6 +35,8 @@
             btnDelete = new Button();
             btnUpdate = new Button();
             groupBox1 = new GroupBox();
+            button2 = new Button();
+            button1 = new Button();
             label2 = new Label();
             label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvCategories).BeginInit();
@@ -44,15 +46,16 @@
             // dgvCategories
             // 
             dgvCategories.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvCategories.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvCategories.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvCategories.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvCategories.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCategories.Location = new Point(0, 0);
             dgvCategories.Name = "dgvCategories";
             dgvCategories.RowTemplate.Height = 25;
-            dgvCategories.Size = new Size(427, 282);
+            dgvCategories.Size = new Size(564, 282);
             dgvCategories.TabIndex = 0;
             dgvCategories.CellClick += dgvCategories_CellClick;
+            dgvCategories.SelectionChanged += dgvCategories_SelectionChanged;
             // 
             // txtName
             // 
@@ -105,6 +108,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(button2);
+            groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(txtDescription);
@@ -115,9 +120,31 @@
             groupBox1.Dock = DockStyle.Bottom;
             groupBox1.Location = new Point(0, 300);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(427, 150);
+            groupBox1.Size = new Size(564, 150);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
+            // 
+            // button2
+            // 
+            button2.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.Location = new Point(458, 83);
+            button2.Name = "button2";
+            button2.Size = new Size(38, 36);
+            button2.TabIndex = 11;
+            button2.Text = "↓";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Location = new Point(458, 38);
+            button1.Name = "button1";
+            button1.Size = new Size(38, 35);
+            button1.TabIndex = 12;
+            button1.Text = "↑";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label2
             // 
@@ -141,7 +168,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(427, 450);
+            ClientSize = new Size(564, 450);
             Controls.Add(groupBox1);
             Controls.Add(dgvCategories);
             Name = "CategoryForm";
@@ -164,5 +191,7 @@
         private GroupBox groupBox1;
         private Label label2;
         private Label label1;
+        private Button button2;
+        private Button button1;
     }
 }

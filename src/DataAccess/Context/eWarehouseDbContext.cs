@@ -13,7 +13,6 @@ namespace DataAccess.Context
         public eWarehouseDbContext(DbContextOptions<eWarehouseDbContext> options)
             : base(options)
         {
-            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 
@@ -25,24 +24,27 @@ namespace DataAccess.Context
         {
             base.OnModelCreating(modelBuilder);
 
-            // seed data for Category class
+            // Seed categories
             modelBuilder.Entity<Category>().HasData(
-                new Category { Id = 1, Name = "Category1", Description = "Description1" },
-                new Category { Id = 2, Name = "Category2", Description = "Description2" }
+                new Category { Id = 1, Name = "Електроніка", Description = "Технічні пристрої на основі електронних компонентів" },
+                new Category { Id = 2, Name = "Одяг", Description = "Одяг та взуття для чоловіків, жінок та дітей" },
+                new Category { Id = 3, Name = "Косметика", Description = "Косметичні засоби для догляду за шкірою обличчя та тіла" }
             );
 
-            // seed data for Provider class
+            // Seed providers
             modelBuilder.Entity<Provider>().HasData(
-                new Provider { Id = 1, Name = "Provider1", Address = "Address1", Email = "Email1", Phone = "Phone1", Description = "Description1", Surname = "Surname2" ,},
-                new Provider { Id = 2, Name = "Provider2", Address = "Address2", Email = "Email2", Phone = "Phone2", Description = "Description2",Surname = "Surname2"}
+                new Provider { Id = 1, Name = "ТОВ 'Електроніка'", Surname = "Новохатько", Address = "м. Київ, вул. Хрещатик, 1", Email = "info@electronics.com", Phone = "+380445551122", Description = "Замовлення від 10 товарів" },
+                new Provider { Id = 2, Name = "ТОВ 'Модний світ'", Surname = "Потебня", Address = "м. Львів, вул. Галицька, 10", Email = "info@fashionworld.com", Phone = "+380322223344", Description = "Тільки предоплата" },
+                new Provider { Id = 3, Name = "ТОВ 'Косметика краси'", Surname = "Каюк", Address = "м. Харків, вул. Сумська, 20", Email = "info@beautycosmetics.com", Phone = "+380577771111", Description = "Довга доставка" }
             );
 
-            // seed data for Product class
+            // Seed products
             modelBuilder.Entity<Product>().HasData(
-                new Product { Id = 1, Name = "Product1", Description = "Description1", Availability = true, CategoryId = 1, ProviderId = 1 , Customer = "Customer1",Brand = "Brand1",Price = 1999},
-                new Product { Id = 2, Name = "Product2", Description = "Description2", Availability = false, CategoryId = 1, ProviderId = 1, Customer = "Customer2", Brand = "Brand2", Price = 2999 },
-                new Product { Id = 3, Name = "Product3", Description = "Description3", Availability = true, CategoryId = 2, ProviderId = 2, Customer = "Customer3", Brand = "Brand3", Price = 3999 }
+                new Product { Id = 1, Name = "Смартфон Samsung Galaxy S21", Description = "Найновіший смартфон від Samsung з чудовим екраном та потужним процесором", Availability = true, CategoryId = 1, ProviderId = 1, Brand = "Samsung", Price = 23999, Customer = "Шиленко" },
+                new Product { Id = 2, Name = "Чоловічі кросівки Nike Air Max", Description = "Комфортні та стильні кросівки для активного відпочинку", Availability = true, CategoryId = 2, ProviderId = 2, Brand = "Nike", Price = 1899, Customer = "Бартків" },
+                new Product { Id = 3, Name = "Крем для обличчя Nivea", Description = "Зволожуючий крем для догляду за сухою та чутливою шкірою обличчя", Availability = true, CategoryId = 3, ProviderId = 3, Brand = "Nivea", Price = 99, Customer = "Асаула" }
             );
+
         }
     }
 

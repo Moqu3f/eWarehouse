@@ -80,5 +80,29 @@ namespace BusinessLogic.BLL
 
 
 
+        public List<Product> GetProductsSortedByName()
+        {
+            return _productDAO.GetAll().OrderBy(p => p.Name).ToList();
+        }
+
+        public List<Product> GetProductsSortedByBrand()
+        {
+            return _productDAO.GetAll().OrderBy(p => p.Brand).ToList();
+        }
+
+        public List<Product> GetProductsSortedByPrice()
+        {
+            return _productDAO.GetAll().OrderBy(p => p.Price).ToList();
+        }
+
+        public List<Product> SearchProductsByKeyword(string keyword)
+        {
+            return _productDAO.GetAll().Where(p => p.Name.ToLower().Contains(keyword.ToLower()) || p.Brand.ToLower().Contains(keyword.ToLower())).ToList();
+        }
+
+        public List<Product> searchCustomerByProducts(string customer)
+        {
+            return _productDAO.GetAll().Where(p => p.Customer.ToLower().Contains(customer.ToLower())).ToList();
+        }
     }
 }

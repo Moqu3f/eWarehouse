@@ -122,7 +122,6 @@ namespace UI.Forms
             var customer = txtCustomer.Text.Trim();
             var description = txtDescriprtion.Text.Trim();
             var availability = checkBox1.Checked;
-
             var brand = txtBrand.Text.Trim();
             var price = txtPrice.Text.Trim();
 
@@ -287,7 +286,6 @@ namespace UI.Forms
             {
                 dataGridView1.CurrentCell = dataGridView1.Rows[currentRowIndex + 1].Cells[0];
             }
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -297,7 +295,6 @@ namespace UI.Forms
             {
                 dataGridView1.CurrentCell = dataGridView1.Rows[currentRowIndex - 1].Cells[0];
             }
-
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -310,5 +307,22 @@ namespace UI.Forms
                 UpdateTextbox();
             }
         }
+
+        private void btnFindKeyword_Click(object sender, EventArgs e)
+        => dataGridView1.DataSource = _productBLL.SearchProductsByKeyword(txtFindKeyword.Text);
+
+        private void btnClient_Click(object sender, EventArgs e)
+            => dataGridView1.DataSource = _productBLL.searchCustomerByProducts(txtFindClient.Text);
+
+        private void bntSortBrand_Click(object sender, EventArgs e)
+        => dataGridView1.DataSource = _productBLL.GetProductsSortedByBrand();
+
+        private void bntSortPrice_Click(object sender, EventArgs e)
+            => dataGridView1.DataSource = _productBLL.GetProductsSortedByPrice();
+
+        private void bntSortName_Click(object sender, EventArgs e)
+            => dataGridView1.DataSource = _productBLL.GetProductsSortedByName();
+
+
     }
 }

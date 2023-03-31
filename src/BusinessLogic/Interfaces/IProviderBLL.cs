@@ -9,10 +9,6 @@ namespace BusinessLogic.Interfaces
 {
     public interface IProviderBLL
     {
-        //TODO: FIND KEYWORD PRODUCT
-        
-        //TODO: CLASS CUSTOMER /BLL DAO LAYER
-        //TODO: CUSTOMER FIND KEYWORD
 
         //TODO: PROJECT NUNIT TEST
         void CreateProvider(Provider provider);
@@ -20,5 +16,9 @@ namespace BusinessLogic.Interfaces
         List<Provider> GetAllProviders();
         void UpdateProvider(Provider provider);
         void DeleteProvider(long id);
+
+
+        List<Provider> GetProvidersSortedByName();
+        List<Provider> GetProvidersSortedBySurname();
     }
 }

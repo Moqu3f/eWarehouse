@@ -37,7 +37,11 @@ namespace UI.Forms
             dgvProviders.Columns["Email"].HeaderText = "Email";
             dgvProviders.Columns["Phone"].HeaderText = "Телефон";
             dgvProviders.Columns["Description"].HeaderText = "Опис";
-            dgvProviders.Columns[6].Visible = false;
+            dgvProviders.Columns["Products"].Visible = false;
+
+            dgvProviders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvProviders.DefaultCellStyle.SelectionBackColor = Color.Yellow;
+            dgvProviders.DefaultCellStyle.SelectionForeColor = Color.Blue;
         }
 
         private void LoadCategories()
@@ -88,11 +92,11 @@ namespace UI.Forms
         {
             if (_selectedProvider != null)
             {
-                if (string.IsNullOrWhiteSpace(txtName.Text) || 
+                if (string.IsNullOrWhiteSpace(txtName.Text) ||
                     string.IsNullOrWhiteSpace(txtAddress.Text) ||
-                    string.IsNullOrWhiteSpace(txtEmail.Text) || 
+                    string.IsNullOrWhiteSpace(txtEmail.Text) ||
                     string.IsNullOrWhiteSpace(txtPhone.Text) ||
-                    string.IsNullOrWhiteSpace(txtSurname.Text)) 
+                    string.IsNullOrWhiteSpace(txtSurname.Text))
                 {
                     MessageBox.Show("Будь ласка, заповніть всі необхідні поля.");
                     return;
@@ -148,6 +152,48 @@ namespace UI.Forms
             txtPhone.Text = "";
             txtSurname.Text = "";
             txt_Description.Text = "";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int currentRowIndex = dgvProviders.CurrentCell.RowIndex;
+            if (currentRowIndex < dgvProviders.Rows.Count - 1)
+            {
+                dgvProviders.CurrentCell = dgvProviders.Rows[currentRowIndex + 1].Cells[0];
+            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int currentRowIndex = dgvProviders.CurrentCell.RowIndex;
+            if (currentRowIndex > 0)
+            {
+                dgvProviders.CurrentCell = dgvProviders.Rows[currentRowIndex - 1].Cells[0];
+            }
+
+        }
+
+        private void dgvProviders_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvProviders.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dgvProviders.SelectedRows[0];
+                long id = (long)selectedRow.Cells["Id"].Value;
+                _selectedProvider = _providerBLL.GetProviderById(id);
+                UpdateCategoryFields();
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            dgvProviders.DataSource = _providerBLL.GetProvidersSortedByName();
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            dgvProviders.DataSource = _providerBLL.GetProvidersSortedBySurname();
         }
     }
 }

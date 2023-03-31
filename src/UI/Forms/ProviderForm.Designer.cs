@@ -43,17 +43,23 @@
             label5 = new Label();
             label6 = new Label();
             groupBox1 = new GroupBox();
+            groupBox2 = new GroupBox();
+            button3 = new Button();
+            button4 = new Button();
+            button2 = new Button();
+            button1 = new Button();
             txtSurname = new TextBox();
             label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvProviders).BeginInit();
             groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // dgvProviders
             // 
             dgvProviders.AllowUserToAddRows = false;
             dgvProviders.AllowUserToDeleteRows = false;
-            dgvProviders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvProviders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvProviders.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvProviders.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProviders.Dock = DockStyle.Top;
@@ -64,6 +70,7 @@
             dgvProviders.Size = new Size(685, 313);
             dgvProviders.TabIndex = 0;
             dgvProviders.CellContentClick += dgvProviders_CellContentClick;
+            dgvProviders.SelectionChanged += dgvProviders_SelectionChanged;
             // 
             // txtName
             // 
@@ -102,7 +109,7 @@
             // 
             // btnUpdate
             // 
-            btnUpdate.Location = new Point(418, 68);
+            btnUpdate.Location = new Point(370, 111);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(75, 23);
             btnUpdate.TabIndex = 3;
@@ -112,7 +119,7 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(418, 126);
+            btnDelete.Location = new Point(370, 169);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(75, 23);
             btnDelete.TabIndex = 4;
@@ -122,7 +129,7 @@
             // 
             // btnCreate
             // 
-            btnCreate.Location = new Point(418, 97);
+            btnCreate.Location = new Point(370, 140);
             btnCreate.Name = "btnCreate";
             btnCreate.Size = new Size(75, 23);
             btnCreate.TabIndex = 5;
@@ -177,6 +184,9 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(groupBox2);
+            groupBox1.Controls.Add(button2);
+            groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(txt_Description);
             groupBox1.Controls.Add(btnUpdate);
             groupBox1.Controls.Add(label6);
@@ -198,6 +208,59 @@
             groupBox1.Size = new Size(685, 228);
             groupBox1.TabIndex = 7;
             groupBox1.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(button3);
+            groupBox2.Controls.Add(button4);
+            groupBox2.Location = new Point(526, 22);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(103, 100);
+            groupBox2.TabIndex = 16;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Сортування";
+            // 
+            // button3
+            // 
+            button3.Location = new Point(6, 32);
+            button3.Name = "button3";
+            button3.Size = new Size(91, 23);
+            button3.TabIndex = 15;
+            button3.Text = "По імені";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(6, 60);
+            button4.Name = "button4";
+            button4.Size = new Size(91, 23);
+            button4.TabIndex = 15;
+            button4.Text = "По призвіщу";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
+            // button2
+            // 
+            button2.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.Location = new Point(635, 66);
+            button2.Name = "button2";
+            button2.Size = new Size(38, 36);
+            button2.TabIndex = 13;
+            button2.Text = "↓";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Location = new Point(635, 21);
+            button1.Name = "button1";
+            button1.Size = new Size(38, 35);
+            button1.TabIndex = 14;
+            button1.Text = "↑";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // txtSurname
             // 
@@ -228,6 +291,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvProviders).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            groupBox2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -250,5 +314,10 @@
         private GroupBox groupBox1;
         private TextBox txtSurname;
         private Label label2;
+        private Button button2;
+        private Button button1;
+        private GroupBox groupBox2;
+        private Button button3;
+        private Button button4;
     }
 }
