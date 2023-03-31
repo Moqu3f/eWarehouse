@@ -43,6 +43,8 @@
             label5 = new Label();
             label6 = new Label();
             groupBox1 = new GroupBox();
+            txtSurname = new TextBox();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvProviders).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -59,7 +61,7 @@
             dgvProviders.Name = "dgvProviders";
             dgvProviders.ReadOnly = true;
             dgvProviders.RowTemplate.Height = 25;
-            dgvProviders.Size = new Size(666, 313);
+            dgvProviders.Size = new Size(685, 313);
             dgvProviders.TabIndex = 0;
             dgvProviders.CellContentClick += dgvProviders_CellContentClick;
             // 
@@ -72,35 +74,35 @@
             // 
             // txtAddress
             // 
-            txtAddress.Location = new Point(74, 45);
+            txtAddress.Location = new Point(74, 83);
             txtAddress.Name = "txtAddress";
             txtAddress.Size = new Size(290, 23);
             txtAddress.TabIndex = 1;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(74, 74);
+            txtEmail.Location = new Point(74, 112);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(290, 23);
             txtEmail.TabIndex = 1;
             // 
             // txtPhone
             // 
-            txtPhone.Location = new Point(74, 103);
+            txtPhone.Location = new Point(74, 141);
             txtPhone.Name = "txtPhone";
             txtPhone.Size = new Size(290, 23);
             txtPhone.TabIndex = 1;
             // 
             // txt_Description
             // 
-            txt_Description.Location = new Point(74, 132);
+            txt_Description.Location = new Point(74, 170);
             txt_Description.Name = "txt_Description";
             txt_Description.Size = new Size(290, 23);
             txt_Description.TabIndex = 1;
             // 
             // btnUpdate
             // 
-            btnUpdate.Location = new Point(419, 45);
+            btnUpdate.Location = new Point(418, 68);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(75, 23);
             btnUpdate.TabIndex = 3;
@@ -110,7 +112,7 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(419, 103);
+            btnDelete.Location = new Point(418, 126);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(75, 23);
             btnDelete.TabIndex = 4;
@@ -120,7 +122,7 @@
             // 
             // btnCreate
             // 
-            btnCreate.Location = new Point(419, 74);
+            btnCreate.Location = new Point(418, 97);
             btnCreate.Name = "btnCreate";
             btnCreate.Size = new Size(75, 23);
             btnCreate.TabIndex = 5;
@@ -133,14 +135,14 @@
             label1.AutoSize = true;
             label1.Location = new Point(27, 19);
             label1.Name = "label1";
-            label1.Size = new Size(39, 15);
+            label1.Size = new Size(28, 15);
             label1.TabIndex = 6;
-            label1.Text = "Назва";
+            label1.Text = "Ім'я";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(30, 78);
+            label3.Location = new Point(30, 116);
             label3.Name = "label3";
             label3.Size = new Size(36, 15);
             label3.TabIndex = 6;
@@ -149,7 +151,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(12, 107);
+            label4.Location = new Point(12, 145);
             label4.Name = "label4";
             label4.Size = new Size(56, 15);
             label4.TabIndex = 6;
@@ -158,7 +160,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(20, 49);
+            label5.Location = new Point(20, 87);
             label5.Name = "label5";
             label5.Size = new Size(46, 15);
             label5.TabIndex = 6;
@@ -167,7 +169,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(30, 135);
+            label6.Location = new Point(30, 173);
             label6.Name = "label6";
             label6.Size = new Size(36, 15);
             label6.TabIndex = 6;
@@ -180,6 +182,7 @@
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(btnDelete);
             groupBox1.Controls.Add(btnCreate);
+            groupBox1.Controls.Add(txtSurname);
             groupBox1.Controls.Add(txtName);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(txtAddress);
@@ -187,19 +190,36 @@
             groupBox1.Controls.Add(txtEmail);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(txtPhone);
+            groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.Location = new Point(0, 313);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(666, 183);
+            groupBox1.Size = new Size(685, 228);
             groupBox1.TabIndex = 7;
             groupBox1.TabStop = false;
+            // 
+            // txtSurname
+            // 
+            txtSurname.Location = new Point(74, 45);
+            txtSurname.Name = "txtSurname";
+            txtSurname.Size = new Size(290, 23);
+            txtSurname.TabIndex = 1;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(7, 48);
+            label2.Name = "label2";
+            label2.Size = new Size(61, 15);
+            label2.TabIndex = 6;
+            label2.Text = "Призвіще";
             // 
             // ProviderForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(666, 496);
+            ClientSize = new Size(685, 541);
             Controls.Add(groupBox1);
             Controls.Add(dgvProviders);
             Name = "ProviderForm";
@@ -228,5 +248,7 @@
         private Label label5;
         private Label label6;
         private GroupBox groupBox1;
+        private TextBox txtSurname;
+        private Label label2;
     }
 }

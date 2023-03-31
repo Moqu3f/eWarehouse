@@ -29,9 +29,9 @@ namespace UI
         {
             LoadCategories();
 
-            dgvCategories.Columns[0].HeaderText = "Id";
-            dgvCategories.Columns[1].HeaderText = "Назва";
-            dgvCategories.Columns[2].HeaderText = "Опис";
+            dgvCategories.Columns["Id"].HeaderText = "Id";
+            dgvCategories.Columns["Name"].HeaderText = "Назва";
+            dgvCategories.Columns["Description"].HeaderText = "Опис";
             dgvCategories.Columns[3].Visible = false;
 
 

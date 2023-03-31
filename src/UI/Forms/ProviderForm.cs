@@ -30,12 +30,13 @@ namespace UI.Forms
         {
             LoadCategories();
 
-            dgvProviders.Columns[0].HeaderText = "Id";
-            dgvProviders.Columns[1].HeaderText = "Назва";
-            dgvProviders.Columns[2].HeaderText = "Адреса";
-            dgvProviders.Columns[3].HeaderText = "Email";
-            dgvProviders.Columns[4].HeaderText = "Телефон";
-            dgvProviders.Columns[5].HeaderText = "Опис";
+            dgvProviders.Columns["Id"].HeaderText = "Id";
+            dgvProviders.Columns["Name"].HeaderText = "Назва";
+            dgvProviders.Columns["Surname"].HeaderText = "Призвіще";
+            dgvProviders.Columns["Address"].HeaderText = "Адреса";
+            dgvProviders.Columns["Email"].HeaderText = "Email";
+            dgvProviders.Columns["Phone"].HeaderText = "Телефон";
+            dgvProviders.Columns["Description"].HeaderText = "Опис";
             dgvProviders.Columns[6].Visible = false;
         }
 
@@ -59,6 +60,7 @@ namespace UI.Forms
             if (_selectedProvider != null)
             {
                 txtName.Text = _selectedProvider.Name;
+                txtSurname.Text = _selectedProvider.Name;
                 txtAddress.Text = _selectedProvider.Address;
                 txtEmail.Text = _selectedProvider.Email;
                 txtPhone.Text = _selectedProvider.Phone;
@@ -86,14 +88,19 @@ namespace UI.Forms
         {
             if (_selectedProvider != null)
             {
-                if (string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(txtAddress.Text) ||
-                    string.IsNullOrWhiteSpace(txtEmail.Text) || string.IsNullOrWhiteSpace(txtPhone.Text))
+                if (string.IsNullOrWhiteSpace(txtName.Text) || 
+                    string.IsNullOrWhiteSpace(txtAddress.Text) ||
+                    string.IsNullOrWhiteSpace(txtEmail.Text) || 
+                    string.IsNullOrWhiteSpace(txtPhone.Text) ||
+                    string.IsNullOrWhiteSpace(txtSurname.Text)) 
                 {
                     MessageBox.Show("Будь ласка, заповніть всі необхідні поля.");
                     return;
                 }
 
+
                 _selectedProvider.Name = txtName.Text;
+                _selectedProvider.Surname = txtSurname.Text;
                 _selectedProvider.Address = txtAddress.Text;
                 _selectedProvider.Email = txtEmail.Text;
                 _selectedProvider.Phone = txtPhone.Text;
@@ -111,7 +118,8 @@ namespace UI.Forms
         private void btnCreate_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(txtAddress.Text) ||
-                string.IsNullOrWhiteSpace(txtEmail.Text) || string.IsNullOrWhiteSpace(txtPhone.Text))
+                string.IsNullOrWhiteSpace(txtEmail.Text) || string.IsNullOrWhiteSpace(txtPhone.Text) ||
+                string.IsNullOrWhiteSpace(txtSurname.Text))
             {
                 MessageBox.Show("Будь ласка, заповніть всі необхідні поля.");
                 return;
@@ -123,6 +131,7 @@ namespace UI.Forms
                 Name = txtName.Text,
                 Address = txtAddress.Text,
                 Email = txtEmail.Text,
+                Surname = txtSurname.Text,
                 Phone = txtPhone.Text,
                 Description = txt_Description.Text,
             };
@@ -137,6 +146,7 @@ namespace UI.Forms
             txtAddress.Text = "";
             txtEmail.Text = "";
             txtPhone.Text = "";
+            txtSurname.Text = "";
             txt_Description.Text = "";
         }
     }

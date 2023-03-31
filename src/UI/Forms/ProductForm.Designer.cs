@@ -44,6 +44,14 @@
             checkBox1 = new CheckBox();
             btn_Clear = new Button();
             groupBox1 = new GroupBox();
+            button2 = new Button();
+            button1 = new Button();
+            label8 = new Label();
+            label7 = new Label();
+            label6 = new Label();
+            txtPrice = new TextBox();
+            txtBrand = new TextBox();
+            txtCustomer = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -64,12 +72,13 @@
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
             // 
             // cmbCategory
             // 
             cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCategory.FormattingEnabled = true;
-            cmbCategory.Location = new Point(527, 46);
+            cmbCategory.Location = new Point(397, 38);
             cmbCategory.Name = "cmbCategory";
             cmbCategory.Size = new Size(175, 23);
             cmbCategory.TabIndex = 1;
@@ -79,7 +88,7 @@
             // 
             cmbProvider.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbProvider.FormattingEnabled = true;
-            cmbProvider.Location = new Point(527, 75);
+            cmbProvider.Location = new Point(397, 67);
             cmbProvider.Name = "cmbProvider";
             cmbProvider.Size = new Size(175, 23);
             cmbProvider.TabIndex = 1;
@@ -89,7 +98,7 @@
             // 
             btnUpdate.AllowDrop = true;
             btnUpdate.FlatStyle = FlatStyle.Flat;
-            btnUpdate.Location = new Point(614, 112);
+            btnUpdate.Location = new Point(484, 104);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(75, 23);
             btnUpdate.TabIndex = 3;
@@ -100,7 +109,7 @@
             // btnDelete
             // 
             btnDelete.FlatStyle = FlatStyle.Flat;
-            btnDelete.Location = new Point(614, 170);
+            btnDelete.Location = new Point(484, 162);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(75, 23);
             btnDelete.TabIndex = 4;
@@ -111,7 +120,7 @@
             // btnCreate
             // 
             btnCreate.FlatStyle = FlatStyle.Flat;
-            btnCreate.Location = new Point(614, 141);
+            btnCreate.Location = new Point(484, 133);
             btnCreate.Name = "btnCreate";
             btnCreate.Size = new Size(75, 23);
             btnCreate.TabIndex = 5;
@@ -121,14 +130,14 @@
             // 
             // txtName
             // 
-            txtName.Location = new Point(51, 46);
+            txtName.Location = new Point(69, 46);
             txtName.Name = "txtName";
             txtName.Size = new Size(231, 23);
             txtName.TabIndex = 6;
             // 
             // txtDescriprtion
             // 
-            txtDescriprtion.Location = new Point(51, 75);
+            txtDescriprtion.Location = new Point(69, 75);
             txtDescriprtion.Name = "txtDescriprtion";
             txtDescriprtion.Size = new Size(231, 23);
             txtDescriprtion.TabIndex = 6;
@@ -145,7 +154,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(7, 75);
+            label2.Location = new Point(6, 79);
             label2.Name = "label2";
             label2.Size = new Size(36, 15);
             label2.TabIndex = 7;
@@ -162,7 +171,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(462, 49);
+            label4.Location = new Point(332, 41);
             label4.Name = "label4";
             label4.Size = new Size(59, 15);
             label4.TabIndex = 7;
@@ -171,7 +180,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(455, 78);
+            label5.Location = new Point(325, 70);
             label5.Name = "label5";
             label5.Size = new Size(66, 15);
             label5.TabIndex = 7;
@@ -180,7 +189,7 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(51, 104);
+            checkBox1.Location = new Point(69, 191);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(92, 19);
             checkBox1.TabIndex = 8;
@@ -189,7 +198,7 @@
             // 
             // btn_Clear
             // 
-            btn_Clear.Location = new Point(527, 170);
+            btn_Clear.Location = new Point(397, 162);
             btn_Clear.Name = "btn_Clear";
             btn_Clear.Size = new Size(75, 23);
             btn_Clear.TabIndex = 9;
@@ -199,15 +208,23 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(button2);
+            groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(checkBox1);
             groupBox1.Controls.Add(btn_Clear);
             groupBox1.Controls.Add(cmbCategory);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(cmbProvider);
+            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(txtDescriprtion);
             groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(txtPrice);
+            groupBox1.Controls.Add(txtBrand);
+            groupBox1.Controls.Add(txtCustomer);
             groupBox1.Controls.Add(txtName);
             groupBox1.Controls.Add(btnCreate);
             groupBox1.Controls.Add(btnDelete);
@@ -218,6 +235,76 @@
             groupBox1.Size = new Size(787, 228);
             groupBox1.TabIndex = 10;
             groupBox1.TabStop = false;
+            // 
+            // button2
+            // 
+            button2.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.Location = new Point(737, 79);
+            button2.Name = "button2";
+            button2.Size = new Size(38, 36);
+            button2.TabIndex = 10;
+            button2.Text = "↓";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Location = new Point(737, 34);
+            button1.Name = "button1";
+            button1.Size = new Size(38, 35);
+            button1.TabIndex = 10;
+            button1.Text = "↑";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(6, 165);
+            label8.Name = "label8";
+            label8.Size = new Size(32, 15);
+            label8.TabIndex = 7;
+            label8.Text = "Ціна";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(6, 136);
+            label7.Name = "label7";
+            label7.Size = new Size(40, 15);
+            label7.TabIndex = 7;
+            label7.Text = "Бренд";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(6, 107);
+            label6.Name = "label6";
+            label6.Size = new Size(61, 15);
+            label6.TabIndex = 7;
+            label6.Text = "Покупець";
+            // 
+            // txtPrice
+            // 
+            txtPrice.Location = new Point(69, 162);
+            txtPrice.Name = "txtPrice";
+            txtPrice.Size = new Size(231, 23);
+            txtPrice.TabIndex = 6;
+            // 
+            // txtBrand
+            // 
+            txtBrand.Location = new Point(69, 133);
+            txtBrand.Name = "txtBrand";
+            txtBrand.Size = new Size(231, 23);
+            txtBrand.TabIndex = 6;
+            // 
+            // txtCustomer
+            // 
+            txtCustomer.Location = new Point(69, 104);
+            txtCustomer.Name = "txtCustomer";
+            txtCustomer.Size = new Size(231, 23);
+            txtCustomer.TabIndex = 6;
             // 
             // ProductForm
             // 
@@ -255,5 +342,13 @@
         private CheckBox checkBox1;
         private Button btn_Clear;
         private GroupBox groupBox1;
+        private Label label6;
+        private TextBox txtCustomer;
+        private Label label8;
+        private Label label7;
+        private TextBox txtPrice;
+        private TextBox txtBrand;
+        private Button button2;
+        private Button button1;
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogic.Interfaces;
 using Models;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UI.Forms
 {
@@ -41,13 +43,20 @@ namespace UI.Forms
             dataGridView1.DataSource = _productBLL.GetAllProducts();
 
 
-
-
             dataGridView1.Columns["Id"].HeaderText = "Id";
             dataGridView1.Columns["Name"].HeaderText = "Назва";
             dataGridView1.Columns["Description"].HeaderText = "Опис";
             dataGridView1.Columns["Availability"].HeaderText = "Доступність";
             dataGridView1.Columns["Category"].HeaderText = "Категорія";
+            dataGridView1.Columns["Customer"].HeaderText = "Покупець";
+
+
+            dataGridView1.Columns["Brand"].HeaderText = "Бренд";
+            dataGridView1.Columns["Price"].HeaderText = "Ціна";
+
+
+
+
             dataGridView1.Columns["CategoryId"].Visible = false;
             dataGridView1.Columns["ProviderId"].Visible = false;
             cmbProvider.SelectedIndex = -1;
@@ -64,6 +73,9 @@ namespace UI.Forms
         private void ProductForm_Load(object sender, EventArgs e)
         {
             LoadProduct();
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.Yellow;
+            dataGridView1.DefaultCellStyle.SelectionForeColor = Color.Blue;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -107,10 +119,15 @@ namespace UI.Forms
             }
 
             var name = txtName.Text.Trim();
+            var customer = txtCustomer.Text.Trim();
             var description = txtDescriprtion.Text.Trim();
             var availability = checkBox1.Checked;
 
-            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(description))
+            var brand = txtBrand.Text.Trim();
+            var price = txtPrice.Text.Trim();
+
+
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(description) || string.IsNullOrEmpty(name))
             {
                 MessageBox.Show("Назва і опис товару не можуть бути порожніми.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -122,8 +139,15 @@ namespace UI.Forms
                 return;
             }
 
+            if (string.IsNullOrEmpty(brand) || string.IsNullOrEmpty(price))
+            {
+                MessageBox.Show("Бренд та ціна не можуть бути порожнім.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             _selectedProduct.Name = name;
             _selectedProduct.Description = description;
+            _selectedProduct.Customer = customer;
             _selectedProduct.Availability = availability;
             _selectedProduct.Provider = _selectedProvider;
             _selectedProduct.Category = _selectedCategory;
@@ -136,6 +160,10 @@ namespace UI.Forms
             var name = txtName.Text.Trim();
             var description = txtDescriprtion.Text.Trim();
             var availability = checkBox1.Checked;
+            var customer = txtCustomer.Text.Trim();
+            var brand = txtBrand.Text.Trim();
+            var price = txtPrice.Text.Trim();
+
 
             if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(description))
             {
@@ -149,10 +177,26 @@ namespace UI.Forms
                 return;
             }
 
+            if (string.IsNullOrEmpty(customer))
+            {
+                MessageBox.Show("Будь ласка, ведіть замовника.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(brand) || string.IsNullOrEmpty(price))
+            {
+                MessageBox.Show("Бренд та ціна не можуть бути порожнім.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
             var product = new Product()
             {
                 Name = name,
+                Customer = customer,
                 Description = description,
+                Brand = brand,
+                Price = decimal.TryParse(price, out decimal value) ? value : 0,
                 Availability = availability,
                 Provider = _selectedProvider,
                 Category = _selectedCategory
@@ -190,9 +234,16 @@ namespace UI.Forms
             txtDescriprtion.Text = _selectedProduct.Description;
             txtName.Text = _selectedProduct.Name;
             txtDescriprtion.Text = _selectedProduct.Description;
+            txtCustomer.Text = _selectedProduct.Customer;
+
+            txtBrand.Text = _selectedProduct.Brand;
+            txtPrice.Text = _selectedProduct.Price + "";
+
+
             checkBox1.Checked = _selectedProduct.Availability;
             cmbCategory.SelectedItem = _selectedProduct.Category;
             cmbProvider.SelectedItem = _selectedProduct.Provider;
+
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -221,9 +272,43 @@ namespace UI.Forms
         {
             txtName.Text = "";
             txtDescriprtion.Text = "";
+            txtCustomer.Text = "";
+            txtPrice.Text = "";
+            txtBrand.Text = "";
             checkBox1.Checked = false;
             cmbCategory.SelectedIndex = -1;
             cmbProvider.SelectedIndex = -1;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int currentRowIndex = dataGridView1.CurrentCell.RowIndex;
+            if (currentRowIndex < dataGridView1.Rows.Count - 1)
+            {
+                dataGridView1.CurrentCell = dataGridView1.Rows[currentRowIndex + 1].Cells[0];
+            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int currentRowIndex = dataGridView1.CurrentCell.RowIndex;
+            if (currentRowIndex > 0)
+            {
+                dataGridView1.CurrentCell = dataGridView1.Rows[currentRowIndex - 1].Cells[0];
+            }
+
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                long id = (long)selectedRow.Cells["Id"].Value;
+                _selectedProduct = _productBLL.GetProductById(id);
+                UpdateTextbox();
+            }
         }
     }
 }

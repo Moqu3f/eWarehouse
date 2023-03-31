@@ -33,15 +33,15 @@ namespace DataAccess.Context
 
             // seed data for Provider class
             modelBuilder.Entity<Provider>().HasData(
-                new Provider { Id = 1, Name = "Provider1", Address = "Address1", Email = "Email1", Phone = "Phone1", Description = "Description1" },
-                new Provider { Id = 2, Name = "Provider2", Address = "Address2", Email = "Email2", Phone = "Phone2", Description = "Description2" }
+                new Provider { Id = 1, Name = "Provider1", Address = "Address1", Email = "Email1", Phone = "Phone1", Description = "Description1", Surname = "Surname2" ,},
+                new Provider { Id = 2, Name = "Provider2", Address = "Address2", Email = "Email2", Phone = "Phone2", Description = "Description2",Surname = "Surname2"}
             );
 
             // seed data for Product class
             modelBuilder.Entity<Product>().HasData(
-                new Product { Id = 1, Name = "Product1", Description = "Description1", Availability = true, CategoryId = 1, ProviderId = 1 },
-                new Product { Id = 2, Name = "Product2", Description = "Description2", Availability = false, CategoryId = 1, ProviderId = 1 },
-                new Product { Id = 3, Name = "Product3", Description = "Description3", Availability = true, CategoryId = 2, ProviderId = 2 }
+                new Product { Id = 1, Name = "Product1", Description = "Description1", Availability = true, CategoryId = 1, ProviderId = 1 , Customer = "Customer1",Brand = "Brand1",Price = 1999},
+                new Product { Id = 2, Name = "Product2", Description = "Description2", Availability = false, CategoryId = 1, ProviderId = 1, Customer = "Customer2", Brand = "Brand2", Price = 2999 },
+                new Product { Id = 3, Name = "Product3", Description = "Description3", Availability = true, CategoryId = 2, ProviderId = 2, Customer = "Customer3", Brand = "Brand3", Price = 3999 }
             );
         }
     }

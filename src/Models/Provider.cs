@@ -8,13 +8,48 @@ namespace Models
 {
     public class Provider
     {
-        //TODO: ADD NAME,SURNAME
-        public long Id { get; set; }
-        public string Name { get; set; }
-        public string Address { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-        public string Description { get; set; }
+        private long id;
+        private string name;
+        private string surname;
+        private string address;
+        private string email;
+        private string phone;
+        private string description;
+
+        public long Id
+        {
+            get => id; set => id = value;
+        }
+
+        public string Name
+        {
+            get => name; set => name = value;
+        }
+
+        public string Surname
+        {
+            get => surname; set => surname = value;
+        }
+
+        public string Address
+        {
+            get => address; set => address = value;
+        }
+
+        public string Email
+        {
+            get => email; set => email = value;
+        }
+
+        public string Phone
+        {
+            get => phone; set => phone = value;
+        }
+
+        public string Description
+        {
+            get => description; set => description = value;
+        }
 
         public ICollection<Product> Products { get; set; }
     }
