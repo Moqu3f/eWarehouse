@@ -78,8 +78,6 @@ namespace BusinessLogic.BLL
             }
         }
 
-
-
         public List<Product> GetProductsSortedByName()
         {
             return _productDAO.GetAll().OrderBy(p => p.Name).ToList();

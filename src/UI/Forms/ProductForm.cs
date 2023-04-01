@@ -21,7 +21,6 @@ namespace UI.Forms
         private IProductBLL _productBLL;
         private ICategoryBLL _categoryBLL;
 
-
         private Product _selectedProduct;
         private Category _selectedCategory;
         private Provider _selectedProvider;
@@ -34,7 +33,6 @@ namespace UI.Forms
             _providerBLL = providerBll;
             _categoryBLL = categoryBll;
 
-
             InitializeComponent();
         }
 
@@ -42,22 +40,14 @@ namespace UI.Forms
         private void LoadProduct()
         {
             dataGridView1.DataSource = _productBLL.GetAllProducts();
-
-
             dataGridView1.Columns["Id"].HeaderText = "Id";
             dataGridView1.Columns["Name"].HeaderText = "Назва";
             dataGridView1.Columns["Description"].HeaderText = "Опис";
             dataGridView1.Columns["Availability"].HeaderText = "Доступність";
             dataGridView1.Columns["Category"].HeaderText = "Категорія";
             dataGridView1.Columns["Customer"].HeaderText = "Покупець";
-
-
             dataGridView1.Columns["Brand"].HeaderText = "Бренд";
             dataGridView1.Columns["Price"].HeaderText = "Ціна";
-
-
-
-
             dataGridView1.Columns["CategoryId"].Visible = false;
             dataGridView1.Columns["ProviderId"].Visible = false;
             cmbProvider.SelectedIndex = -1;
@@ -75,8 +65,15 @@ namespace UI.Forms
         {
             LoadProduct();
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.Yellow;
-            dataGridView1.DefaultCellStyle.SelectionForeColor = Color.Blue;
+            dataGridView1.Columns[0].Width = 50;
+            dataGridView1.Columns[1].Width = 150;
+            dataGridView1.Columns[2].Width = 300;
+            dataGridView1.Columns[0].Resizable = DataGridViewTriState.False;
+            dataGridView1.Columns[1].Resizable = DataGridViewTriState.False;
+            dataGridView1.Columns.Cast<DataGridViewColumn>().Skip(3).ToList().ForEach(c => c.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill);
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.BlueViolet;
+            dataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -104,14 +101,10 @@ namespace UI.Forms
             }
         }
 
-
-
-
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             UpdateProduct();
             dataGridView1.DataSource = _productBLL.GetAllProducts();
-
         }
 
         private void UpdateProduct()
@@ -207,8 +200,6 @@ namespace UI.Forms
             };
 
             _productBLL.CreateProduct(product);
-
-
             LoadProduct();
         }
 
@@ -239,15 +230,11 @@ namespace UI.Forms
             txtName.Text = _selectedProduct.Name;
             txtDescriprtion.Text = _selectedProduct.Description;
             txtCustomer.Text = _selectedProduct.Customer;
-
             txtBrand.Text = _selectedProduct.Brand;
             txtPrice.Text = _selectedProduct.Price + "";
-
-
             checkBox1.Checked = _selectedProduct.Availability;
             cmbCategory.SelectedItem = _selectedProduct.Category;
             cmbProvider.SelectedItem = _selectedProduct.Provider;
-
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

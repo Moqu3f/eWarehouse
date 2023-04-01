@@ -9,14 +9,11 @@ namespace BusinessLogic.Interfaces
 {
     public interface IProviderBLL
     {
-
-        //TODO: PROJECT NUNIT TEST
         void CreateProvider(Provider provider);
         Provider GetProviderById(long id);
         List<Provider> GetAllProviders();
         void UpdateProvider(Provider provider);
         void DeleteProvider(long id);
-
 
         List<Provider> GetProvidersSortedByName();
         List<Provider> GetProvidersSortedBySurname();

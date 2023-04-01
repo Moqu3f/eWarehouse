@@ -34,16 +34,18 @@ namespace UI
             dgvCategories.Columns["Name"].HeaderText = "Назва";
             dgvCategories.Columns["Description"].HeaderText = "Опис";
             dgvCategories.Columns[3].Visible = false;
-
+            dgvCategories.Columns[0].Width = 50;
+            dgvCategories.Columns[1].Width = 50;
+            dgvCategories.Columns[0].Resizable = DataGridViewTriState.False;
+            dgvCategories.Columns[1].Resizable = DataGridViewTriState.False;
+            dgvCategories.Columns.Cast<DataGridViewColumn>().Skip(2).ToList().ForEach(c => c.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill);
             dgvCategories.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCategories.DefaultCellStyle.SelectionBackColor = Color.Yellow;
-            dgvCategories.DefaultCellStyle.SelectionForeColor = Color.Blue;
+            dgvCategories.DefaultCellStyle.SelectionBackColor = Color.BlueViolet;
+            dgvCategories.DefaultCellStyle.SelectionForeColor = Color.White;
 
         }
 
-
         private void LoadCategories() => dgvCategories.DataSource = _categoryBLL.GetAllCategories();
-
 
         private void dgvCategories_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -55,7 +57,6 @@ namespace UI
             }
         }
 
-
         private void UpdateCategoryFields()
         {
             if (_selectedCategory != null)
@@ -64,7 +65,6 @@ namespace UI
                 txtDescription.Text = _selectedCategory.Description;
             }
         }
-
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
@@ -105,7 +105,6 @@ namespace UI
             LoadCategories();
         }
 
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (_selectedCategory == null)
@@ -137,7 +136,6 @@ namespace UI
                 }
             }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
 
@@ -147,7 +145,7 @@ namespace UI
                 if (currentRowIndex < dgvCategories.Rows.Count - 1)
                 {
                     dgvCategories.CurrentCell = dgvCategories.Rows[currentRowIndex + 1].Cells[0];
-                }   
+                }
             }
         }
 

@@ -33,16 +33,18 @@ namespace UI.Forms
 
             dgvProviders.Columns["Id"].HeaderText = "Id";
             dgvProviders.Columns["Name"].HeaderText = "Назва";
-            dgvProviders.Columns["Surname"].HeaderText = "Призвіще";
+            dgvProviders.Columns["Surname"].HeaderText = "Прізвище";
             dgvProviders.Columns["Address"].HeaderText = "Адреса";
             dgvProviders.Columns["Email"].HeaderText = "Email";
             dgvProviders.Columns["Phone"].HeaderText = "Телефон";
             dgvProviders.Columns["Description"].HeaderText = "Опис";
             dgvProviders.Columns["Products"].Visible = false;
-
+            dgvProviders.Columns["Id"].Width = 50;
+            dgvProviders.Columns["Surname"].Width = 120;
+            dgvProviders.Columns.Cast<DataGridViewColumn>().Skip(3).ToList().ForEach(c => c.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill);
             dgvProviders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvProviders.DefaultCellStyle.SelectionBackColor = Color.Yellow;
-            dgvProviders.DefaultCellStyle.SelectionForeColor = Color.Blue;
+            dgvProviders.DefaultCellStyle.SelectionBackColor = Color.BlueViolet;
+            dgvProviders.DefaultCellStyle.SelectionForeColor = Color.White;
         }
 
         private void LoadCategories()
@@ -65,12 +67,11 @@ namespace UI.Forms
             if (_selectedProvider != null)
             {
                 txtName.Text = _selectedProvider.Name;
-                txtSurname.Text = _selectedProvider.Name;
+                txtSurname.Text = _selectedProvider.Surname;
                 txtAddress.Text = _selectedProvider.Address;
                 txtEmail.Text = _selectedProvider.Email;
                 txtPhone.Text = _selectedProvider.Phone;
                 txt_Description.Text = _selectedProvider.Description;
-
             }
         }
 
@@ -199,7 +200,6 @@ namespace UI.Forms
                     dgvProviders.CurrentCell = dgvProviders.Rows[currentRowIndex + 1].Cells[0];
                 }
             }
-
         }
 
         private void button1_Click(object sender, EventArgs e)

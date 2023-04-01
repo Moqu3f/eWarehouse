@@ -9,7 +9,6 @@ namespace BusinessLogic.Interfaces
 {
     public interface IProductBLL
     {
-        
         void CreateProduct(Product product);
         Product GetProductById(long id);
         List<Product> GetAllProducts();

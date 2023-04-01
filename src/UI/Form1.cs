@@ -16,12 +16,6 @@ namespace UI
             _categoryBLL = category;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void btnOpenCategories_Click(object sender, EventArgs e)
         {
             using (var categoryForm = _serviceProvider.GetService<CategoryForm>())
@@ -29,8 +23,6 @@ namespace UI
                 categoryForm.ShowDialog();
             }
         }
-
-
 
         private void button2_Click(object sender, EventArgs e)
         {
