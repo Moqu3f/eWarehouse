@@ -71,7 +71,7 @@ namespace Tests.DAO
             {
                 Name = "Test Product",
                 Description = "This is a test product",
-                Availability = true,
+                Quantity = 50,
                 CategoryId = category.Id,
                 ProviderId = provider.Id,
                 Brand = "Test Brand",
@@ -87,7 +87,7 @@ namespace Tests.DAO
             Assert.NotNull(retrievedProduct);
             Assert.AreEqual(product.Name, retrievedProduct.Name);
             Assert.AreEqual(product.Description, retrievedProduct.Description);
-            Assert.AreEqual(product.Availability, retrievedProduct.Availability);
+            Assert.AreEqual(product.Quantity, retrievedProduct.Quantity);
             Assert.AreEqual(product.CategoryId, retrievedProduct.CategoryId);
             Assert.AreEqual(product.ProviderId, retrievedProduct.ProviderId);
             Assert.AreEqual(product.Brand, retrievedProduct.Brand);
@@ -121,7 +121,7 @@ namespace Tests.DAO
             {
                 Name = "Test Product 1",
                 Description = "This is a test product 1",
-                Availability = true,
+                Quantity = 20,
                 CategoryId = category.Id,
                 ProviderId = provider.Id,
                 Brand = "Test Brand 1",
@@ -134,7 +134,7 @@ namespace Tests.DAO
             {
                 Name = "Test Product 2",
                 Description = "This is a test product 2",
-                Availability = true,
+                Quantity = 20,
                 CategoryId = category.Id,
                 ProviderId = provider.Id,
                 Brand = "Test Brand 2",
@@ -159,7 +159,7 @@ namespace Tests.DAO
             {
                 Name = "Test Product",
                 Description = "This is a test product",
-                Availability = true,
+                Quantity = 20,
                 CategoryId = 1,
                 ProviderId = 1,
                 Brand = "Test Brand",
@@ -185,7 +185,7 @@ namespace Tests.DAO
             {
                 Name = "Test Product",
                 Description = "This is a test product",
-                Availability = true,
+                Quantity = 50,
                 CategoryId = 1,
                 ProviderId = 1,
                 Brand = "Test Brand",
@@ -203,7 +203,7 @@ namespace Tests.DAO
             Assert.AreEqual(productId, retrievedProduct.Id);
             Assert.AreEqual(product.Name, retrievedProduct.Name);
             Assert.AreEqual(product.Description, retrievedProduct.Description);
-            Assert.AreEqual(product.Availability, retrievedProduct.Availability);
+            Assert.AreEqual(product.Quantity, retrievedProduct.Quantity);
             Assert.AreEqual(product.CategoryId, retrievedProduct.CategoryId);
             Assert.AreEqual(product.ProviderId, retrievedProduct.ProviderId);
             Assert.AreEqual(product.Brand, retrievedProduct.Brand);
@@ -219,7 +219,7 @@ namespace Tests.DAO
             {
                 Name = "Test Product",
                 Description = "This is a test product",
-                Availability = true,
+                Quantity = 20,
                 CategoryId = 1,
                 ProviderId = 1,
                 Brand = "Test Brand",

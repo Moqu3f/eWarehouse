@@ -11,7 +11,7 @@ namespace Models
         private long id;
         private string name;
         private string description;
-        private bool availability;
+        private int quantity;
         private long categoryId;
         private long providerId;
         private string brand;
@@ -33,9 +33,9 @@ namespace Models
             get => description; set => description = value;
         }
 
-        public bool Availability
+        public int Quantity
         {
-            get => availability; set => availability = value;
+            get => quantity; set => quantity = value;
         }
 
         public long CategoryId

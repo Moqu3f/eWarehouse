@@ -43,7 +43,7 @@ namespace UI.Forms
             dataGridView1.Columns["Id"].HeaderText = "Id";
             dataGridView1.Columns["Name"].HeaderText = "Назва";
             dataGridView1.Columns["Description"].HeaderText = "Опис";
-            dataGridView1.Columns["Availability"].HeaderText = "Доступність";
+            dataGridView1.Columns["Quantity"].HeaderText = "Кількість";
             dataGridView1.Columns["Category"].HeaderText = "Категорія";
             dataGridView1.Columns["Customer"].HeaderText = "Покупець";
             dataGridView1.Columns["Brand"].HeaderText = "Бренд";
@@ -117,7 +117,7 @@ namespace UI.Forms
             var name = txtName.Text.Trim();
             var customer = txtCustomer.Text.Trim();
             var description = txtDescriprtion.Text.Trim();
-            var availability = checkBox1.Checked;
+            var availability = numericUpDown1.Value;
             var brand = txtBrand.Text.Trim();
             var price = txtPrice.Text.Trim();
 
@@ -145,7 +145,7 @@ namespace UI.Forms
             _selectedProduct.Customer = customer;
             _selectedProduct.Brand = brand;
             _selectedProduct.Price = decimal.TryParse(price, out decimal value) ? value : 0;
-            _selectedProduct.Availability = availability;
+            numericUpDown1.Value = 0;
             _selectedProduct.Provider = _selectedProvider;
             _selectedProduct.Category = _selectedCategory;
 
@@ -156,7 +156,7 @@ namespace UI.Forms
         {
             var name = txtName.Text.Trim();
             var description = txtDescriprtion.Text.Trim();
-            var availability = checkBox1.Checked;
+            var quantity = numericUpDown1.Value;
             var customer = txtCustomer.Text.Trim();
             var brand = txtBrand.Text.Trim();
             var price = txtPrice.Text.Trim();
@@ -194,7 +194,7 @@ namespace UI.Forms
                 Description = description,
                 Brand = brand,
                 Price = decimal.TryParse(price, out decimal value) ? value : 0,
-                Availability = availability,
+                Quantity = (int)quantity,
                 Provider = _selectedProvider,
                 Category = _selectedCategory
             };
@@ -232,7 +232,7 @@ namespace UI.Forms
             txtCustomer.Text = _selectedProduct.Customer;
             txtBrand.Text = _selectedProduct.Brand;
             txtPrice.Text = _selectedProduct.Price + "";
-            checkBox1.Checked = _selectedProduct.Availability;
+            numericUpDown1.Value = _selectedProduct.Quantity;
             cmbCategory.SelectedItem = _selectedProduct.Category;
             cmbProvider.SelectedItem = _selectedProduct.Provider;
         }
@@ -266,7 +266,7 @@ namespace UI.Forms
             txtCustomer.Text = "";
             txtPrice.Text = "";
             txtBrand.Text = "";
-            checkBox1.Checked = false;
+            numericUpDown1.Value = 0;
             cmbCategory.SelectedIndex = -1;
             cmbProvider.SelectedIndex = -1;
         }

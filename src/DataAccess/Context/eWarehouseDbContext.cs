@@ -40,9 +40,9 @@ namespace DataAccess.Context
 
             // Seed products
             modelBuilder.Entity<Product>().HasData(
-                new Product { Id = 1, Name = "Смартфон Samsung Galaxy S21", Description = "Найновіший смартфон від Samsung з чудовим екраном та потужним процесором", Availability = true, CategoryId = 1, ProviderId = 1, Brand = "Samsung", Price = 23999, Customer = "Шиленко" },
-                new Product { Id = 2, Name = "Чоловічі кросівки Nike Air Max", Description = "Комфортні та стильні кросівки для активного відпочинку", Availability = true, CategoryId = 2, ProviderId = 2, Brand = "Nike", Price = 1899, Customer = "Бартків" },
-                new Product { Id = 3, Name = "Крем для обличчя Nivea", Description = "Зволожуючий крем для догляду за сухою та чутливою шкірою обличчя", Availability = true, CategoryId = 3, ProviderId = 3, Brand = "Nivea", Price = 99, Customer = "Асаула" }
+                new Product { Id = 1, Name = "Смартфон Samsung Galaxy S21", Description = "Найновіший смартфон від Samsung з чудовим екраном та потужним процесором", Quantity = 50, CategoryId = 1, ProviderId = 1, Brand = "Samsung", Price = 23999, Customer = "Шиленко" },
+                new Product { Id = 2, Name = "Чоловічі кросівки Nike Air Max", Description = "Комфортні та стильні кросівки для активного відпочинку", Quantity = 15, CategoryId = 2, ProviderId = 2, Brand = "Nike", Price = 1899, Customer = "Бартків" },
+                new Product { Id = 3, Name = "Крем для обличчя Nivea", Description = "Зволожуючий крем для догляду за сухою та чутливою шкірою обличчя", Quantity = 20, CategoryId = 3, ProviderId = 3, Brand = "Nivea", Price = 99, Customer = "Асаула" }
             );
 
         }
