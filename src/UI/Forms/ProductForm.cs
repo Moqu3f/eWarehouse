@@ -117,7 +117,7 @@ namespace UI.Forms
             var name = txtName.Text.Trim();
             var customer = txtCustomer.Text.Trim();
             var description = txtDescriprtion.Text.Trim();
-            var availability = numericUpDown1.Value;
+            var quantity = numericUpDown1.Value;
             var brand = txtBrand.Text.Trim();
             var price = txtPrice.Text.Trim();
 
@@ -145,7 +145,7 @@ namespace UI.Forms
             _selectedProduct.Customer = customer;
             _selectedProduct.Brand = brand;
             _selectedProduct.Price = decimal.TryParse(price, out decimal value) ? value : 0;
-            numericUpDown1.Value = 0;
+            _selectedProduct.Quantity = (int)quantity;
             _selectedProduct.Provider = _selectedProvider;
             _selectedProduct.Category = _selectedCategory;
 
